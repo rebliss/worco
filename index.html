@@ -13,6 +13,13 @@
   <link rel="stylesheet" href="./assets/vendor/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="./assets/css/theme.min.css">
   <script src="https://www.google.com/recaptcha/api.js?render=6LfYODIpAAAAAJmmNE6Xm2q2ThRnuq6VVv_jfk4L"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<style>
+  .error{
+    color:red
+  }
+</style>
 </head>
 
 <body>
@@ -568,14 +575,14 @@
             <div class="card zi-2">
               <div class="card-body">
                 <!-- Form -->
-                <form id="contactForm" >
+                <form id="form-submit" >
                   <div class="row">
                     <div class="col-sm-6">
                       <!-- Form -->
                       <div class="mb-4">
-                        <label class="form-label" for="first_name">First name</label>
+                        <label class="form-label" for="first_name">First name <span class="text-danger"> *</span></label>
                         <input type="text" class="form-control form-control-lg" name="first_name" id="first_name"
-                          placeholder="First name" aria-label="First name">
+                          placeholder="First name" aria-label="First name" required>
                       </div>
                       <!-- End Form -->
                     </div>
@@ -584,9 +591,9 @@
                     <div class="col-sm-6">
                       <!-- Form -->
                       <div class="mb-4">
-                        <label class="form-label" for="last_name">Last name</label>
+                        <label class="form-label" for="last_name">Last name <span class="text-danger"> *</span></label>
                         <input type="text" class="form-control form-control-lg" name="last_name" id="last_name"
-                          placeholder="Last name" aria-label="Last name">
+                          placeholder="Last name" aria-label="Last name" required>
                       </div>
                       <!-- End Form -->
                     </div>
@@ -596,31 +603,31 @@
 
                   <!-- Form -->
                   <div class="mb-4">
-                    <label class="form-label" for="email_address">Email address</label>
+                    <label class="form-label" for="email_address">Email address <span class="text-danger"> *</span></label>
                     <input type="email" class="form-control form-control-lg" name="email_address" id="email_address"
-                      placeholder="email@site.com" aria-label="email@site.com">
+                      placeholder="email@site.com" aria-label="email@site.com" required>
                   </div>
                   <!-- End Form -->
 
                   <!-- Form -->
                   <div class="mb-4">
                     <label class="form-label" for="company_name">Company name <span
-                        class="form-label-secondary">(Optional)</span></label>
+                        class="form-label-secondary">(Optional)</span> <span class="text-danger"> *</span></label>
                     <input type="text" class="form-control form-control-lg" name="company_name" id="company_name"
-                      placeholder="Worco" aria-label="Beelabs">
+                      placeholder="Ex: Worco" aria-label="Beelabs" required>
                   </div>
                   <div class="mb-4">
-                    <label class="form-label" for="message">Details</label>
+                    <label class="form-label" for="message">Details <span class="text-danger"> *</span></label>
                     <textarea class="form-control form-control-lg" name="message" id="message"
                       placeholder="Tell us about your project" aria-label="Tell us about your project"
-                      rows="4"></textarea>
+                      rows="4" required></textarea>
                   </div>
                   <!-- End Form -->
 
                   <!-- Check -->
                   <div class="form-check mb-4">
                     <input type="checkbox" class="form-check-input" id="signupFormPrivacyCheck"
-                      name="signupFormPrivacyCheck" required="" data-msg="Please accept our Privacy Policy.">
+                      name="signupFormPrivacyCheck" required="" data-msg="Please accept our Privacy Policy." required>
                     <label class="form-check-label" for="signupFormPrivacyCheck"> By submitting this form I have read
                       and acknowledged the <a href="./page-privacy.html">Privacy Policy</a></label>
                   </div>
@@ -875,7 +882,15 @@
      document.getElementById("demo-form").submit();
    }
  </script>
-  </script>
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+  
+          $("#form-submit").validate();
+  
+      });
+  
+      </script>
 </body>
 
 </html>

@@ -4,3 +4,6 @@
 p{
     text-align: justify;
 }
+.error{
+    color: red!important;
+}
